@@ -43,7 +43,7 @@ RUN apt-get update \
   && mkdir -p /usr/local/cuda/lib \
   && cp /usr/lib/x86_64-linux-gnu/libcuda.so.1 /usr/local/cuda/lib/ \
   && git clone https://github.com/lindawangg/COVID-Net.git COVIDNet \
-  && wget https://raw.githubusercontent.com/grace335/pl-covidnet-train/master/create_COVIDx_v3.py -P ./COVIDNet/
+  && wget https://raw.githubusercontent.com/grace335/pl-covidnet-generate-dataset/master/create_COVIDx_v3.py -P ./COVIDNet/
 
 RUN pip install -r requirements.txt
 
