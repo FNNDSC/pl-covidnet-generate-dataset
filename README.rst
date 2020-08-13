@@ -87,12 +87,18 @@ Using ``docker run``
 
 To run using ``docker``, be sure to assign an "input" directory to ``/incoming`` and an output directory to ``/outgoing``. *Make sure that the* ``$(pwd)/out`` *directory is world writable!*
 
+To pull the docker image from dockerhub:
+
+.. code:: bash
+
+    docker pull grace335/pl-covidnet_generate_dataset
+
 Now, prefix all calls with 
 
 .. code:: bash
 
     docker run --rm -v $(pwd)/out:/outgoing                             \
-            fnndsc/pl-covidnet_generate_dataset covidnet_generate_dataset.py                        \
+            grace335/pl-covidnet_generate_dataset covidnet_generate_dataset.py                        \
 
 Thus, getting inline help is:
 
@@ -100,14 +106,18 @@ Thus, getting inline help is:
 
     mkdir in out && chmod 777 out
     docker run --rm -v $(pwd)/in:/incoming -v $(pwd)/out:/outgoing      \
-            fnndsc/pl-covidnet_generate_dataset covidnet_generate_dataset.py                        \
+            grace335/pl-covidnet_generate_dataset covidnet_generate_dataset.py                        \
             --man                                                       \
             /incoming /outgoing
 
 Examples
 --------
 
+.. code:: bash
 
+    # Pull docker image
+    docker pull grace335/pl-covidnet-generate-dataset
 
-
+    # Run the generate dataset plugin
+    docker run --rm -it -v $(pwd)/in:/incoming -v $(pwd)/out:/outgoing grace335/pl-covidnet-generate-dataset covidnet_generate_dataset.py --mode covidx /incoming /outgoing
 
